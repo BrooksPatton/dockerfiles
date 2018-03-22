@@ -13,6 +13,9 @@ echo "What tags (comma separated) should this video have?"
 read TAGS
 echo "What playlist should this video be in?"
 read PLAYLIST
+echo "Should this be a public video?"
+echo "public | unlisted | private"
+read PUBLIC
 echo "finally, what is the filename?"
 ls -l
 read FILENAME
@@ -22,6 +25,7 @@ echo "*****************************"
 echo "title: $TITLE"
 echo "tags: $TAGS"
 echo "Playlist: $PLAYLIST"
+echo "Public: $PUBLIC"
 echo "filename: $FILENAME"
 echo "*****************************"
 echo "is this correct? (Y/n)"
@@ -34,6 +38,7 @@ then
     --title="$TITLE" \
     --tags="$TAGS" \
     --playlist="$PLAYLIST" \
+    --privacy="$PUBLIC" \
     "$FILENAME"
 
   if [ "$?" == "0" ]
